@@ -1,6 +1,6 @@
 # BackMix
-Under review at MICCAI 2024
 
+Under review at MICCAI 2024
 
 ### Dataset
 
