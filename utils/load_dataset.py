@@ -1,11 +1,7 @@
-from learnt_focus.utils.dataset_tmed2_4_class import TMED2_4_Class
-#from learnt_focus.utils.dataset_tmed2_4_class_SMA import TMED2_4_Class_SMA
-from learnt_focus.utils.dataset_tmed2_4_class_semi import TMED2_4_Class_Semi
-from learnt_focus.utils.dataset_tmed2_4_class_semi_weighted import TMED2_4_Class_Semi_Weighted
-#from learnt_focus.utils.dataset_tmed2_4_class_semi_subset_choice import TMED2_4_Class_Semi_Subset_Choice
-
-#from learnt_focus.utils.dataset_wase_4_class import WASE_4_Class
-#from learnt_focus.utils.dataset_wase_4_class_SMA import WASE_4_Class_SMA
+from utils.dataset_tmed2_4_class import TMED2_4_Class
+from utils.dataset_tmed2_4_class_semi import TMED2_4_Class_Semi
+from utils.dataset_wase_4_class import WASE_4_Class
+from utils.dataset_tmed_4_class_semi_weighted import TMED2_4_Class_Semi_Weighted
 
 from torch.utils.data import DataLoader
 import albumentations as A
@@ -62,31 +58,7 @@ def load_dataset(config):
                                      rtn_id=True,
                                      apply_mask=config['APPLY_MASK'],
                                      sup_fraction=config['SUP_FRACTION'])
-    # elif config['DATASET'] == 'tmed2_4class_subset_choice':
-    #     train_dataset = TMED2_4_Class_Semi_Subset_Choice(data_root=data_root + 'TMED2/',
-    #                                   transforms=train_transforms,
-    #                                   subset='train',
-    #                                   norm=config['NORM'],
-    #                                   rtn_id=True,
-    #                                   apply_mask=config['APPLY_MASK'],
-    #                                   sup_fraction=config['SUP_FRACTION'],
-    #                                   subset_choice=config['SUBSET_CHOICE'])
-    #     val_dataset = TMED2_4_Class_Semi_Subset_Choice(data_root=data_root + 'TMED2/',
-    #                                 transforms=None,
-    #                                 subset='val',
-    #                                 norm=config['NORM'],
-    #                                 rtn_id=True,
-    #                                 apply_mask=config['APPLY_MASK'],
-    #                                 sup_fraction=config['SUP_FRACTION'],
-    #                                 subset_choice=config['SUBSET_CHOICE'])
-    #     test_dataset = TMED2_4_Class_Semi_Subset_Choice(data_root=data_root + 'TMED2/',
-    #                                  transforms=None,
-    #                                  subset='test',
-    #                                  norm=config['NORM'],
-    #                                  rtn_id=True,
-    #                                  apply_mask=config['APPLY_MASK'],
-    #                                  sup_fraction=config['SUP_FRACTION'],
-    #                                  subset_choice=config['SUBSET_CHOICE'])
+
     elif config['DATASET'] == 'tmed2_4class_semi_weighted':
         train_dataset = TMED2_4_Class_Semi_Weighted(data_root=data_root + 'TMED2/',
                                       transforms=train_transforms,
@@ -106,63 +78,31 @@ def load_dataset(config):
                                     sup_fraction=config['SUP_FRACTION'],
                                     mu=config['MU']
                                                   )
-    #     test_dataset = TMED2_4_Class_Semi_Weighted(data_root=data_root + 'TMED2/',
-    #                                  transforms=None,
-    #                                  subset='test',
-    #                                  norm=config['NORM'],
-    #                                  rtn_id=True,
-    #                                  apply_mask=config['APPLY_MASK'],
-    #                                  sup_fraction=config['SUP_FRACTION'],
-    #                                  mu=config['MU']
-    #                                                )
-    # elif config['DATASET'] == 'tmed2_4class_SMA':
-    #     train_dataset = TMED2_4_Class_SMA(data_root=data_root + 'TMED2/',
-    #                                   transforms=train_transforms,
-    #                                   subset='train',
-    #                                   norm=config['NORM'],
-    #                                   rtn_id=True)
-    #     val_dataset = TMED2_4_Class_SMA(data_root=data_root + 'TMED2/',
-    #                                 transforms=None,
-    #                                 subset='val',
-    #                                 norm=config['NORM'],
-    #                                 rtn_id=True,)
-    #     test_dataset = TMED2_4_Class_SMA(data_root=data_root + 'TMED2/',
-    #                                  transforms=None,
-    #                                  subset='test',
-    #                                  norm=config['NORM'],
-    #                                  rtn_id=True,)
-    # elif config['DATASET'] == 'wase_4class':
-    #     train_dataset = WASE_4_Class(data_root=data_root + 'WASE/',
-    #                                   transforms=train_transforms,
-    #                                   subset='train',
-    #                                   norm=config['NORM'],
-    #                                   rtn_id=True,)
-    #     val_dataset = WASE_4_Class(data_root=data_root + 'WASE/',
-    #                                 transforms=None,
-    #                                 subset='val',
-    #                                 norm=config['NORM'],
-    #                                 rtn_id=True,)
-    #     test_dataset = WASE_4_Class(data_root=data_root + 'WASE/',
-    #                                  transforms=None,
-    #                                  subset='test',
-    #                                  norm=config['NORM'],
-    #                                  rtn_id=True,)
-    # elif config['DATASET'] == 'wase_4class_SMA':
-    #     train_dataset = WASE_4_Class_SMA(data_root=data_root + 'WASE/',
-    #                                   transforms=train_transforms,
-    #                                   subset='train',
-    #                                   norm=config['NORM'],
-    #                                   rtn_id=True,)
-    #     val_dataset = WASE_4_Class_SMA(data_root=data_root + 'WASE/',
-    #                                 transforms=None,
-    #                                 subset='val',
-    #                                 norm=config['NORM'],
-    #                                 rtn_id=True,)
-    #     test_dataset = WASE_4_Class_SMA(data_root=data_root + 'WASE/',
-    #                                  transforms=None,
-    #                                  subset='test',
-    #                                  norm=config['NORM'],
-    #                                  rtn_id=True,)
+        test_dataset = TMED2_4_Class_Semi_Weighted(data_root=data_root + 'TMED2/',
+                                     transforms=None,
+                                     subset='test',
+                                     norm=config['NORM'],
+                                     rtn_id=True,
+                                     apply_mask=config['APPLY_MASK'],
+                                     sup_fraction=config['SUP_FRACTION'],
+                                     mu=config['MU']
+                                                   )
+    elif config['DATASET'] == 'wase_4class':
+        train_dataset = WASE_4_Class(data_root=data_root + 'WASE/',
+                                      transforms=train_transforms,
+                                      subset='train',
+                                      norm=config['NORM'],
+                                      rtn_id=True,)
+        val_dataset = WASE_4_Class(data_root=data_root + 'WASE/',
+                                    transforms=None,
+                                    subset='val',
+                                    norm=config['NORM'],
+                                    rtn_id=True,)
+        test_dataset = WASE_4_Class(data_root=data_root + 'WASE/',
+                                     transforms=None,
+                                     subset='test',
+                                     norm=config['NORM'],
+                                     rtn_id=True,)
 
     else:
         print('WARNING - No dataset selected..')

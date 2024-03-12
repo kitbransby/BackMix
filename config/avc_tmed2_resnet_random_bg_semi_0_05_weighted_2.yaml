@@ -6,7 +6,6 @@ EPOCHS: 100
 VERBOSE: True
 TRAIN_PRINT: 200
 VAL_PRINT: 20
-ROOT: 'learnt_focus'
 SUP_FRACTION: 0.05
 MU: 2
 
@@ -20,7 +19,6 @@ LOAD_TO_RAM: False
 SYNTHETIC_TEST_SET: False
 APPLY_MASK: 'random_bg' # options are: None, 'noise_05_1', 'noise_0_1', 'block_noise', 'block_black', 'shuffle_bg'
 MASK_TEST_SET: False
-DATA_ROOT: '/mnt/c/Users/KitBransby/OneDrive - Ultromics Ltd/Documents/Datasets/'
 NUM_CLASSES: 4
 RESOLUTION: 112
 INP_DIM: 1

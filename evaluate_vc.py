@@ -11,8 +11,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from learnt_focus.utils.load_dataset import load_dataset
-from learnt_focus.models.load_model import load_model
+from utils.load_dataset import load_dataset
+from models.load_model import load_model
 
 from sklearn.metrics import roc_auc_score, confusion_matrix, classification_report, ConfusionMatrixDisplay
 
@@ -114,7 +114,7 @@ def main(config):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--DATA_ROOT', type=str, default='/mnt/c/Users/KitBransby/OneDrive - Ultromics Ltd/Documents/Datasets/')
+    parser.add_argument('--DATA_ROOT', type=str)
     parser.add_argument('--RUN_ID', type=str)
     parser.add_argument('--LOAD_TO_RAM', default=False, action=argparse.BooleanOptionalAction)
     parser.add_argument('--CONFIG', type=str)
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     cmd_config = vars(config)
 
     # load model and training configs
-    with open('learnt_focus/config/' + cmd_config['CONFIG'] + '.yaml') as f:
+    with open('config/' + cmd_config['CONFIG'] + '.yaml') as f:
         yaml_config = yaml.load(f, yaml.FullLoader)
 
     config = yaml_config

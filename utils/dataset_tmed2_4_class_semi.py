@@ -3,8 +3,6 @@ import glob
 import numpy as np
 import torch
 import pickle
-from scipy.ndimage.filters import gaussian_filter
-import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 class TMED2_4_Class_Semi(Dataset):

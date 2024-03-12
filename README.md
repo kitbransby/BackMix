@@ -6,6 +6,15 @@ Under review at MICCAI 2024
 
 Access to the TMED dataset can be obtained [here](https://tmed.cs.tufts.edu/index.html). 
 
+### Requirements
+
+torch 2.1.0 
+torchinfo 1.8.0
+numpy 1.26.0
+tqdm 4.66.1
+scikit-learn 1.4.1
+pickle 0.0.12
+
 ### Train 
 
 To train the baseline:
@@ -25,9 +34,9 @@ All training files require a random seed using the `--SEED` arg.
 ### Evaluate 
 
 To evaluate on TMED (regardless of config used for training)
-`python evaluate_vc --CONFIG avc_tmed_2 --RUN_ID {specify results folder which contains weights}`
+`python evaluate_vc.py --CONFIG avc_tmed_2 --RUN_ID {specify results folder which contains weights}`
 
 ### Weights 
 
-Weights are provided in `weights/`. Each model is run three times with a different seed (5, 10, 15). 
+Weights are provided in `weights/`. 
 

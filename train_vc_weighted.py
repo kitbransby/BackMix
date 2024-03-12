@@ -13,10 +13,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torchinfo import summary
 
-from learnt_focus.models.load_model import load_model
+from models.load_model import load_model
 
-from learnt_focus.utils.train_utils import plot
-from learnt_focus.utils.load_dataset import load_dataset
+from utils.train_utils import plot
+from utils.load_dataset import load_dataset
 
 def main(config):
 
@@ -42,7 +42,7 @@ def main(config):
     optimizer = torch.optim.Adam(model.parameters(), config['LR'])
     max_epochs = config['EPOCHS']
 
-    save_folder = os.path.join('learnt_focus', "results", config['RUN_ID'] + '_' + config['DATASET'])
+    save_folder = os.path.join("results", config['RUN_ID'] + '_' + config['DATASET'])
     try:
         os.mkdir(save_folder)
     except Exception as e:
@@ -137,7 +137,7 @@ def main(config):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--DATA_ROOT', type=str, default='/mnt/c/Users/KitBransby/OneDrive - Ultromics Ltd/Documents/Datasets/')
+    parser.add_argument('--DATA_ROOT', type=str)
     parser.add_argument('--LOAD_TO_RAM', default=False, action=argparse.BooleanOptionalAction)
     parser.add_argument('--CONFIG', type=str)
     parser.add_argument('--SEED', type=int)
@@ -145,7 +145,7 @@ if __name__ == "__main__":
     cmd_config = vars(config)
 
     # load model and training configs
-    with open('learnt_focus/config/' + cmd_config['CONFIG'] + '.yaml') as f:
+    with open('config/' + cmd_config['CONFIG'] + '.yaml') as f:
         yaml_config = yaml.load(f, yaml.FullLoader)
 
     config = yaml_config
