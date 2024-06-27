@@ -1,0 +1,23 @@
+# train
+BATCH_SIZE: 64
+LR: 0.001
+NUM_WORKERS: 8
+EPOCHS: 100
+VERBOSE: True
+TRAIN_PRINT: 200
+VAL_PRINT: 20
+SUP_FRACTION: 0.05
+MU: 2
+
+# model
+MODEL: 'resnet18'
+RTN_ID: True
+
+# data
+DATASET: 'tmed2_4class_semi_weighted'
+APPLY_MASK: 'random_bg' # options are: None, 'noise_05_1', 'noise_0_1', 'block_noise', 'block_black', 'shuffle_bg'
+MASK_TEST_SET: False
+NUM_CLASSES: 4
+RESOLUTION: 112
+INP_DIM: 1
+NORM: 'z'
