@@ -2,7 +2,7 @@
 
 Accepted at MICCAI 2024: Pre-print available soon
 
-![](C:\Users\KitBransby\GitHub\BackMix\evaluation\figures\schematic.png)
+![](evaluation/figures/schematic.png)
 
 ### Requirements
 
