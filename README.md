@@ -10,7 +10,8 @@ Set up environment and install dependencies
 
 ```
 # Create a virtual environment (recommended)
-conda create -n backmix --file requirements.txt
+conda env create -n backmix --file=requirements.yml
+
 ```
 
 ### Dataset
