@@ -1,6 +1,6 @@
 # BackMix: Mitigating Shortcut Learning in Echocardiography with Minimal Supervision
 
-Accepted at MICCAI 2024: Pre-print available soon
+Accepted at MICCAI 2024: [Pre-print PDF available here](https://arxiv.org/abs/2406.19148)
 
 ![](evaluation/figures/schematic.png)
 
